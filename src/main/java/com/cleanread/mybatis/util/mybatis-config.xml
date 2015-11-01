@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration 
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  <properties resource="com/cleanread/mybatis/util/db.properties"></properties>
+  
+  <environments default="clean-read-db">
+    <environment id="clean-read-db">
+      <transactionManager type="JDBC"></transactionManager>
+      <dataSource type="POOLED">
+        <property name="driver" value="${driverName}" />
+        <property name="url" value="${url}" />
+        <property name="username" value="${username}" />
+        <property name="password" value="${password}" />
+      </dataSource>
+    </environment>
+  </environments>
+  <mappers>
+    <mapper resource="com/cleanread/mybatis/entitymapper/UserMapper.xml" />
+  </mappers>
+</configuration>
