@@ -1,4 +1,4 @@
-package com.cleanread.common.util;
+package com.cleanread.util;
 
 import java.io.IOException;
 import java.io.InputStream;

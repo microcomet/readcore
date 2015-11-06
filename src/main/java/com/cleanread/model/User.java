@@ -1,8 +1,8 @@
-package com.cleanread.entity;
+package com.cleanread.model;
 
 public class User {
 	private String email;
-	private String userName;
+	private String username;
 	private String password;
 	public String getEmail() {
 		return email;
@@ -10,11 +10,11 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getUserName() {
-		return userName;
+	public String getUsername() {
+		return username;
 	}
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	public String getPassword() {
 		return password;
@@ -28,5 +28,9 @@ public class User {
 			return true;
 		else 
 			return false;
+	}
+	
+	public String toString(){
+		return this.email + " " + this.username + " " + this.password;
 	}
 }
