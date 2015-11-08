@@ -1,0 +1,52 @@
+.body {
+  font-family:courier new;
+}
+
+div {
+  text-align:center;
+}
+
+#logo {
+  margin-top:20px;
+  border:1px;
+}
+
+#logo img {
+  width:50%;
+  opacity:0.8;
+}
+
+#login input {
+  height:30px;
+  width:200px;
+  font-size:15px;
+  border:1px solid;
+  border-color:darkgray;
+}
+
+#login input+input {
+  margin-left:5px;
+}
+
+#login input:hover {
+  border:1px solid;
+  border-color:blue;
+}
+
+#login button {
+  height:34px;
+  width:60px;
+  border:1px solid;
+  border-color:darkgray;
+  font-size:larger;
+  margin-left:2px;
+}
+
+#login button:hover {
+  background-color:orange;
+  border-color:darkgray;
+}
+
+#unlogin {
+  margin-top:20px;
+}
