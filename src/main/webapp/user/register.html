@@ -3,8 +3,100 @@
 <head>
 <meta charset="UTF-8">
 <title>Clean Read</title>
+<style>
+
+  .header{
+    border-bottom:2px solid;
+    margin-bottom:40px;
+  }
+  
+  .header img{
+    float:left;
+    width:40%;
+    height:20%;
+  }
+  
+  .header p{
+    float:left;
+  }
+  
+  .footer{
+    clear:both;
+    
+  }
+  
+  .register{
+    text-align:center;
+    width:100%;
+  }
+  .register #left{
+    text-align:right;
+    float:left;
+    width:50%;
+  }
+  
+  .register #right{
+    float:left;
+    width:50%;
+    text-align:left;
+  }
+  
+  .register input{
+    border:1px solid darkgray;
+    size:40;
+    width:300px;
+    display:block;
+    margin-bottom:20px;
+  }
+  
+  .register input[type=checkbox]{
+    display:inline;
+    width:20px;
+  }
+  
+  .register input[type=submit]{
+    width:70px;
+  }
+  
+  .register label{
+    text-align:right;
+    display:block;
+    margin-bottom:20px;
+  }
+  
+  #right label{
+    display:inline;
+  }
+  
+  .register input:hover{
+    border-color:blue;
+  }
+
+</style>
 </head>
 <body>
+<div class="header">
+<img src="../images/logo.png" />
+<p>干净阅读</p>
+<div class="footer"></div>
+</div>
 
+<div class="register">
+  <form>
+    <div id="left">
+      <label>邮箱：</label>
+      <label>密码：</label>
+      <label>确认密码：</label>
+    </div>
+    <div id="right">
+      <input type="text" name="username" />
+      <input type="password" name="password" />
+      <input type="password" name="repassword" />
+      <input type="checkbox" name="accepted" />
+      <label>我已经仔细阅读并接受《<a href="#">干净阅读服务协议</a>》</label>
+      <input type="submit" name="submit" value="立即注册"/>
+    </div>
+  </form>
+</div>
 </body>
 </html>
