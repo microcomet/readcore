@@ -26,7 +26,7 @@ public interface UserMapper {
 	 * @author fanwei
 	 * @param user
 	 */
-	public void insert(User user);
+	public int insert(User user);
 	
 	
 	/**
@@ -34,7 +34,7 @@ public interface UserMapper {
 	 * @author fanwei
 	 * @param user
 	 */
-	public void update(User user);
+	public int update(User user);
 	
 	
 	/**

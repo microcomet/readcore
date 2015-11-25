@@ -27,8 +27,8 @@ public class UserServiceImpl implements UserService{
 		// TODO Auto-generated method stub
 		try {
 			UserMapper userDao = sqlSessionTemplate.getMapper(UserMapper.class);
-			userDao.insert(user);
-			return true;
+			int num = userDao.insert(user);
+			return num > 0 ? true : false;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;

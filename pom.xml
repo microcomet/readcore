@@ -13,21 +13,11 @@
       <artifactId>junit</artifactId>
       <version>4.12</version>
       <scope>test</scope>
-    </dependency>
-
-<!--
-因为spring-web中已经包含了spring-core构件，此处再设置冗余且傻     
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-core</artifactId>
-      <version>4.2.2.RELEASE</version>
-      <scope>compile</scope>
-    </dependency>
- -->    
+    </dependency>   
 
     <dependency>
       <groupId>org.springframework</groupId>
-      <artifactId>spring-web</artifactId>
+      <artifactId>spring-webmvc</artifactId>   
       <version>4.2.2.RELEASE</version>
       <scope>compile</scope>
     </dependency>
@@ -62,5 +52,28 @@
   </dependencies>
   <build>
     <finalName>readcore</finalName>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.tomcat.maven</groupId>
+          <artifactId>tomcat6-maven-plugin</artifactId>
+          <version>2.2</version>
+          <configuration>
+            <path>/readcore</path>
+            <port>8080</port>
+            <uriEncoding>UTF-8</uriEncoding>
+            <url>http://localhost:8080/manager/</url>
+            <server>tomcat6</server>
+            <contextReloadeable>true</contextReloadeable>
+          </configuration>
+          
+        </plugin>
+        <plugin>
+          <groupId>org.apache.tomcat.maven</groupId>
+          <artifactId>tomcat7-maven-plugin</artifactId>
+          <version>2.2</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
   </build>
 </project>
