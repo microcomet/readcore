@@ -21,10 +21,17 @@ http://www.springframework.org/schema/mvc  http://www.springframework.org/schema
 <!--    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/>
 -->  
   <!-- 视图解析器配置 -->
-  <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">  
-   <property name="prefix" value="/user/"/>  
-   <property name="suffix" value=".jsp"/>
-   <property name="order" value="0" />
+  <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" />
+  
+  <!-- 配置json解析器 -->
+  <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" />
+  
+  <bean id="userService" class="com.cleanread.serviceImpl.UserServiceImpl" scope="prototype">
+    <property name="sqlSessionTemplate" ref="sqlSessionTemplate" />
+  </bean>
+  
+  <bean id="novelService" class="com.cleanread.serviceImpl.NovelServiceImpl" scope="prototype">
+    <property name="sqlSessionTemplate" ref="sqlSessionTemplate" />
   </bean>
   
 </beans>

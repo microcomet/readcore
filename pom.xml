@@ -49,31 +49,29 @@
       <version>1.4</version>
       <scope>compile</scope>
     </dependency>
+    
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-annotations</artifactId>
+      <version>2.5.5</version>
+      <scope>compile</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.5.5</version>
+      <scope>compile</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+      <version>2.5.5</version>
+      <scope>compile</scope>
+    </dependency>
+    
+    
   </dependencies>
-  <build>
-    <finalName>readcore</finalName>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>org.apache.tomcat.maven</groupId>
-          <artifactId>tomcat6-maven-plugin</artifactId>
-          <version>2.2</version>
-          <configuration>
-            <path>/readcore</path>
-            <port>8080</port>
-            <uriEncoding>UTF-8</uriEncoding>
-            <url>http://localhost:8080/manager/</url>
-            <server>tomcat6</server>
-            <contextReloadeable>true</contextReloadeable>
-          </configuration>
-          
-        </plugin>
-        <plugin>
-          <groupId>org.apache.tomcat.maven</groupId>
-          <artifactId>tomcat7-maven-plugin</artifactId>
-          <version>2.2</version>
-        </plugin>
-      </plugins>
-    </pluginManagement>
-  </build>
+
 </project>

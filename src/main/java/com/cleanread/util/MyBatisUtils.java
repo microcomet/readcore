@@ -9,7 +9,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 public class MyBatisUtils {
 
-	private static final String configXml="mybatis-config.xml";
+	private static final String configXml="mybatis-config-utils.xml";
 	private static SqlSessionFactory sqlSessionFactory = null;
 	
 	public static SqlSessionFactory getSqlSessionFactory(){

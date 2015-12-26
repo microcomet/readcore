@@ -9,6 +9,8 @@
 package com.cleanread.controller;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +24,7 @@ import com.cleanread.service.UserService;
  *
  */
 @Controller
-@RequestMapping("/user/")
+@RequestMapping("/pages/user/")
 public class UserAction {
 	
 	@Resource(name="userService")
@@ -37,14 +39,15 @@ public class UserAction {
 	}
 
 	@RequestMapping("register.req")
-	public ModelAndView register(String username, String password){
+	public ModelAndView register(String username, String password, HttpServletRequest request, HttpServletResponse response){
+		response.setHeader("Access-Control-Allow-Origin", "http://www.biquge.la/*");
 		User user = new User();
 		user.setUsername(username);
 		user.setPassword(password);
 		user.setEmail(username);
 		userService.addUser(user);
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("ok");
+		mv.setViewName("/pages/user/ok.jsp");
 		return mv;
 	}
 }
