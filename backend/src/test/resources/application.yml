@@ -1,0 +1,46 @@
+server:
+  port: 8080
+spring:
+  profiles:
+    active: development
+mybatis:
+  mapper-locations: classpath:mybatis/mapper/**/*.xml
+  type-aliases-package: xyz.durian.read.cleanread.dao.entity
+  configuration:
+    map-underscore-to-camel-case: true
+
+
+### development
+---
+
+spring:
+  profiles: development
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://118.24.29.109:17963/clean_read?useSSL=false&useUnicode=true&characterEncoding=utf8
+    username: cleaner
+    password: QAZ!@#wsx
+    hikari:
+      connection-timeout: 60000
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+
+#logging:
+#  config: classpath:logback-dev.xml
+
+### production
+---
+
+spring:
+  profiles: production
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://118.24.29.109:17963/clean_read?useSSL=false&useUnicode=true&characterEncoding=utf8
+    username: cleaner
+    password: QAZ!@#wsx
+
+#logging:
+#  config: classpath:logback-prod.xml

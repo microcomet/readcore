@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.durian.read.cleanread.dao.mapper.UserDao">
+    <select id="getUserById" resultType="UserDO">
+
+    SELECT
+        `user_id`,
+        `user_name`,
+        `type`,
+        `password`,
+        `profile`,
+        `birthday`,
+        `mobile_phone`,
+        `email`,
+        `create_time`,
+        `update_time`
+    FROM
+        `user`
+    WHERE
+        `user_id` = #{value};
+
+  </select>
+</mapper>

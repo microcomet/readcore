@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.durian.read.cleanread.dao.mapper.BookDao">
+    <select id="getChapterDOByChapterId" resultType="ChapterDO">
+
+    SELECT
+        `chapter_id`,
+        `book_id`,
+        `volume_id`,
+        `order`,
+        `chapter_title`,
+        `chapter_sub_title`,
+        `create_time`,
+        `update_time`
+    FROM
+        `chapter`
+    WHERE
+        `chapter_id` = #{value};
+
+  </select>
+
+    <select id="getChapterDOByBookIdAndChapterOrder" resultType="ChapterDO">
+
+    SELECT
+        `chapter_id`,
+        `book_id`,
+        `volume_id`,
+        `order`,
+        `chapter_title`,
+        `chapter_sub_title`,
+        `create_time`,
+        `update_time`
+    FROM
+        `chapter`
+    WHERE
+        `book_id` = #{bookId} and `order` = #{order};
+
+  </select>
+
+    <select id="getChapterDOListByVolumeId" resultType="ChapterDO">
+
+    SELECT
+        `chapter_id`,
+        `book_id`,
+        `volume_id`,
+        `order`,
+        `chapter_title`,
+        `chapter_sub_title`,
+        `create_time`,
+        `update_time`
+    FROM
+        `chapter`
+    WHERE
+        `volume_id` = #{value }
+    ORDER BY `order`;
+
+  </select>
+
+    <select id="getChapterContentByChapterId" resultType="ChapterDO">
+
+    SELECT
+        `chapter_id`,
+        `book_id`,
+        `volume_id`,
+        `content`,
+        `order`,
+        `chapter_title`,
+        `chapter_sub_title`,
+        `create_time`,
+        `update_time`
+    FROM
+        `chapter`
+    WHERE
+        `chapter_id` = #{value };
+
+  </select>
+
+    <select id="getMaxOrderByBookId" resultType="Integer">
+        SELECT
+            MAX(`order`) AS max_order
+        FROM
+            `chapter`
+        WHERE
+            `book_id` = #{value };
+    </select>
+
+    <select id="getChapterDOListByBookId" resultType="ChapterDO">
+
+    SELECT
+        `chapter_id`,
+        `book_id`,
+        `volume_id`,
+        `order`,
+        `chapter_title`,
+        `chapter_sub_title`,
+        `create_time`,
+        `update_time`
+    FROM
+        `chapter`
+    WHERE
+        `book_id` = #{value }
+    ORDER BY `order`;
+
+  </select>
+
+    <select id="getVolumeDOListByBookId" resultType="VolumeDO">
+
+    SELECT
+        `volume_id`,
+        `book_id`,
+        `order`,
+        `volume_name`,
+        `description`,
+        `create_time`,
+        `update_time`
+    FROM
+        `volume`
+    WHERE
+        `book_id` = #{value }
+    ORDER BY `order`;
+
+  </select>
+
+    <select id="getVolumeDOByVolumeId" resultType="VolumeDO">
+
+    SELECT
+        `volume_id`,
+        `book_id`,
+        `order`,
+        `volume_name`,
+        `description`,
+        `create_time`,
+        `update_time`
+    FROM
+        `volume`
+    WHERE
+        `volume_id` = #{value };
+
+  </select>
+
+    <select id="getBookByBookId" resultType="BookDO">
+
+    SELECT
+        a.`book_id`,
+        a.`category_id`,
+        b.`name` AS `category_name`,
+        a.`name`,
+        a.`sub_name`,
+        a.`cover`,
+        a.`author`,
+        a.`profile`,
+        a.`first_chapter_id`,
+        a.`latest_chapter_id`,
+        a.`keyword`,
+        a.`create_time`,
+        a.`update_time`
+    FROM
+        `book` a
+            LEFT JOIN
+        `book_category` b ON b.`category_id` = a.`category_id`
+    WHERE
+        a.`book_id` = #{value};
+
+  </select>
+
+    <select id="getBooksByCategory" resultType="BookDO">
+
+    SELECT
+        a.`book_id`,
+        a.`category_id`,
+        b.`name` AS `category_name`,
+        a.`name`,
+        a.`sub_name`,
+        a.`cover`,
+        a.`author`,
+        a.`profile`,
+        a.`first_chapter_id`,
+        a.`latest_chapter_id`,
+        a.`keyword`,
+        a.`create_time`,
+        a.`update_time`
+    FROM
+        `book` a
+            LEFT JOIN
+        `book_category` b ON b.`category_id` = a.`category_id`
+    WHERE
+        a.`category_id` = #{value};
+
+  </select>
+
+    <select id="getAllBooks" resultType="BookDO">
+
+    SELECT
+        a.*
+    FROM
+        `book` a;
+
+  </select>
+</mapper>
