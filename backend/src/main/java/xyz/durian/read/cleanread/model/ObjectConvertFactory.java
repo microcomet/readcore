@@ -7,7 +7,7 @@ import xyz.durian.read.datalayer.dao.entity.BookDO;
 import xyz.durian.read.datalayer.dao.entity.ChapterDO;
 import xyz.durian.read.datalayer.dao.entity.VolumeDO;
 
-import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.function.BiFunction;
@@ -23,7 +23,7 @@ public class ObjectConvertFactory {
         if (Objects.isNull(content) || content.length == 0) {
             return null;
         }
-        String contentUtf = new String(content, Charset.forName("UTF-8"));
+        String contentUtf = new String(content, StandardCharsets.UTF_8);
 
         String[] paragraphArray = contentUtf.split("[\\r\\n]");
 
@@ -58,7 +58,7 @@ public class ObjectConvertFactory {
         chapterDO.setCreateTime(LocalDateTime.now());
 
         String content = String.join("", chapterVO.getParagraphList());
-        chapterDO.setContent(content.getBytes(Charset.forName("UTF-8")));
+        chapterDO.setContent(content.getBytes(StandardCharsets.UTF_8));
 
         return chapterDO;
     };
